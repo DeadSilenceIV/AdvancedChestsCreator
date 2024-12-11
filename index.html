@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AdvancedChests</title> <!-- Updated Title -->
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <!-- Import Roboto Black 900 -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet" />
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>ADVANCEDCHESTS CREATOR</h1> <!-- Updated Heading with Refined Text-Shadow -->
+    <!-- Progress Bar -->
+    <ul class="progress-bar">
+      <li class="active" data-emoji="📝" title="Chest Name"></li> <!-- Step 1: Chest Name -->
+      <li data-emoji="📦" title="Inventory"></li> <!-- Step 2: Inventory -->
+      <li data-emoji="🗄️" title="Container"></li> <!-- Step 3: Container -->
+      <li data-emoji="💎" title="Item"></li> <!-- Step 4: Item -->
+      <li data-emoji="🔮" title="Hologram"></li> <!-- Step 5: Hologram -->
+      <li data-emoji="🚚" title="Transportation"></li> <!-- Step 6: Transportation -->
+      <li data-emoji="🏷️" title="Shop"></li> <!-- Step 7: Shop -->
+      <li data-emoji="🪣" title="Hopper"></li> <!-- Step 8: Hopper -->
+      <li data-emoji="🔄" title="Pagination"></li> <!-- Step 9: Pagination -->
+      <li data-emoji="🔧" title="Upgrades"></li> <!-- Step 10: Upgrades -->
+      <li data-emoji="🗂️" title="Sorters"></li> <!-- Step 11: Sorters -->
+      <li data-emoji="💰" title="Sells"></li> <!-- Step 12: Sells -->
+      <li data-emoji="🔥" title="Smelter"></li> <!-- Step 13: Smelter -->
+      <li data-emoji="⚙️" title="Compressor"></li> <!-- Step 14: Compressor -->
+      <li data-emoji="📈" title="Auto Sells"></li> <!-- Step 15: Auto Sells -->
+      <li data-emoji="🛢️" title="Deposit"></li> <!-- Step 16: Deposit -->
+      <li data-emoji="🔍" title="Search"></li> <!-- Step 17: Search -->
+      <li data-emoji="⚙️" title="Settings"></li> <!-- Step 18: Settings -->
+      <li data-emoji="🛠️" title="Crafting"></li> <!-- Step 19: Crafting -->
+    </ul>
+    <!-- Form Steps -->
+    <form id="yamlForm">
+      <!-- Step 1: Chest Name -->
+      <div class="form-step active">
+        <div class="form-group">
+          <label for="chestName">Chest Name:</label> <!-- Added colon -->
+          <input type="text" id="chestName" value="Example" placeholder="Enter the name of the chest" />
+          <span class="error-message" id="chestNameError"></span>
+        </div>
+      </div>
+
+      <!-- Step 2: Inventory -->
+      <div class="form-step">
+        <div class="form-group">
+          <label for="inventoryName">Inventory Name:</label> <!-- Added colon -->
+          <input type="text" id="inventoryName" value="&a&lExample Chest &8Page - %i%" placeholder="Enter inventory name" />
+          <span class="error-message" id="inventoryNameError"></span>
+        </div>
+        <div class="form-group">
+          <label for="inventorySize">Inventory Size:</label> <!-- Added colon -->
+          <input type="number" id="inventorySize" value="315" placeholder="Enter inventory size (multiple of 9)" min="9" step="9" />
+          <span class="error-message" id="inventorySizeError"></span>
+        </div>
+      </div>
+
+      <!-- Step 3: Container -->
+      <div class="form-step">
+        <div class="form-group">
+          <label for="containerType">Container Type:</label> <!-- Added colon -->
+          <select id="containerType">
+            <option value="CHEST">CHEST</option>
+            <option value="BARREL">BARREL</option>
+            <option value="SHULKER_BOX">SHULKER_BOX</option>
+          </select>
+          <span class="error-message" id="containerTypeError"></span>
+        </div>
+      </div>
+
+      <!-- Step 4: Item -->
+      <div class="form-step">
+        <div class="form-group">
+          <label for="itemName">Item Name:</label> <!-- Added colon -->
+          <input type="text" id="itemName" value="&4&lExample Chest" placeholder="Enter item name" />
+          <span class="error-message" id="itemNameError"></span>
+        </div>
+        <div class="form-group">
+          <label for="itemLore">Item Lore (line per line):</label> <!-- Added colon -->
+          <textarea id="itemLore">&7This chest contains a total
+&7of &6x%size% &7slots</textarea>
+          <span class="error-message" id="itemLoreError"></span>
+        </div>
+      </div>
+
+      <!-- Step 5: Hologram -->
+      <div class="form-step">
+        <div class="form-group inline">
+          <label for="hologramEnable">Enable Hologram:</label> <!-- Added colon -->
+          <input type="checkbox" id="hologramEnable" checked />
+        </div>
+        <div class="form-group">
+          <label for="hologramTitle">Hologram Title (line per line):</label> <!-- Added colon -->
+          <textarea id="hologramTitle">&8&k..&a&lExample Chest&8&k..
+&6%slots_used%&7/&6%size% &7slots</textarea>
+          <span class="error-message" id="hologramTitleError"></span>
+        </div>
+      </div>
+
+      <!-- Step 6: Transportation -->
+      <div class="form-step">
+        <div class="form-group inline">
+          <label for="transportEnable">Enable Transportation:</label> <!-- Added colon -->
+          <input type="checkbox" id="transportEnable" checked />
+        </div>
+        <div class="form-group">
+          <label for="transportItemName">Transport Item Name:</label> <!-- Added colon -->
+          <input type="text" id="transportItemName" value="&a&lExample Chest" placeholder="Enter transport item name" />
+          <span class="error-message" id="transportItemNameError"></span>
+        </div>
+        <div class="form-group">
+          <label for="transportItemLore">Transport Item Lore (line per line):</label> <!-- Added colon -->
+          <textarea id="transportItemLore">&7This chest contains a total
+&7of &6x%size% &7slots
+
+&7Occupied slots: &a%slots_used%
+&7Earned money: &e$%money%
+
+&c➹ &fPlace it to restore the content!</textarea>
+          <span class="error-message" id="transportItemLoreError"></span>
+        </div>
+      </div>
+
+      <!-- Step 7: Shop -->
+      <div class="form-step">
+        <div class="form-group">
+          <label for="shopPrice">Shop Price:</label> <!-- Added colon -->
+          <input type="number" id="shopPrice" value="-1" placeholder="Enter shop price (-1 to hide in shop)" />
+          <span class="error-message" id="shopPriceError"></span>
+        </div>
+      </div>
+
+      <!-- Step 8: Hopper -->
+      <div class="form-step">
+        <div class="form-group inline">
+          <label for="allowHoppersUse">Allow Hopper Usage:</label> <!-- Added colon -->
+          <input type="checkbox" id="allowHoppersUse" checked />
+        </div>
+      </div>
+
+      <!-- Step 9: Pagination -->
+      <div class="form-step">
+        <div class="form-group">
+          <label for="previousPageSlot">Previous Page Slot:</label> <!-- Added colon -->
+          <input type="number" id="previousPageSlot" value="4" placeholder="Enter previous page slot" min="0" />
+          <span class="error-message" id="previousPageSlotError"></span>
+        </div>
+        <div class="form-group">
+          <label for="nextPageSlot">Next Page Slot:</label> <!-- Added colon -->
+          <input type="number" id="nextPageSlot" value="6" placeholder="Enter next page slot" min="0" />
+          <span class="error-message" id="nextPageSlotError"></span>
+        </div>
+      </div>
+
+      <!-- Step 10: Upgrades -->
+      <div class="form-step">
+        <div class="form-group inline">
+          <label for="upgradesEnable">Enable Upgrades:</label> <!-- Added colon -->
+          <input type="checkbox" id="upgradesEnable" />
+        </div>
+        <div class="form-group">
+          <label for="upgradesNextUpgrade">Next Upgrade:</label> <!-- Added colon -->
+          <input type="text" id="upgradesNextUpgrade" value="" placeholder="Enter next upgrade" />
+          <span class="error-message" id="upgradesNextUpgradeError"></span>
+        </div>
+        <div class="form-group">
+          <label for="upgradesPrice">Upgrades Price:</label> <!-- Added colon -->
+          <input type="number" id="upgradesPrice" value="0" placeholder="Enter upgrades price" min="0" />
+          <span class="error-message" id="upgradesPriceError"></span>
+        </div>
+        <div class="form-group">
+          <label for="upgradesSlot">Upgrades Slot:</label> <!-- Added colon -->
+          <input type="number" id="upgradesSlot" value="5" placeholder="Enter upgrades slot" min="0" />
+          <span class="error-message" id="upgradesSlotError"></span>
+        </div>
+      </div>
+
+      <!-- Step 11: Sorters -->
+      <div class="form-step">
+        <div class="form-group inline">
+          <label for="sortersEnable">Enable Sorters:</label> <!-- Added colon -->
+          <input type="checkbox" id="sortersEnable" checked />
+        </div>
+        <div class="form-group">
+          <label for="sortersPrice">Sorters Price:</label> <!-- Added colon -->
+          <input type="number" id="sortersPrice" value="0" placeholder="Enter sorters price" min="0" />
+          <span class="error-message" id="sortersPriceError"></span>
+        </div>
+        <div class="form-group">
+          <label for="sortersSlot">Sorters Slot:</label> <!-- Added colon -->
+          <input type="number" id="sortersSlot" value="9" placeholder="Enter sorters slot" min="0" />
+          <span class="error-message" id="sortersSlotError"></span>
+        </div>
+      </div>
+
+      <!-- Step 12: Sells -->
+      <div class="form-step">
+        <div class="form-group inline">
+          <label for="sellsEnable">Enable Sells:</label> <!-- Added colon -->
+          <input type="checkbox" id="sellsEnable" checked />
+        </div>
+        <div class="form-group">
+          <label for="sellsMultiplier">Sells Multiplier:</label> <!-- Added colon -->
+          <input type="number" id="sellsMultiplier" value="2" placeholder="Enter sells multiplier" min="0" step="0.01" />
+          <span class="error-message" id="sellsMultiplierError"></span>
+        </div>
+        <div class="form-group">
+          <label for="sellsSlot">Sells Slot:</label> <!-- Added colon -->
+          <input type="number" id="sellsSlot" value="1" placeholder="Enter sells slot" min="0" />
+          <span class="error-message" id="sellsSlotError"></span>
+        </div>
+      </div>
+
+      <!-- Step 13: Smelter -->
+      <div class="form-step">
+        <div class="form-group inline">
+          <label for="smelterEnable">Enable Smelter:</label> <!-- Added colon -->
+          <input type="checkbox" id="smelterEnable" />
+        </div>
+        <div class="form-group">
+          <label for="smelterPrice">Smelter Price:</label> <!-- Added colon -->
+          <input type="number" id="smelterPrice" value="1000" placeholder="Enter smelter price" min="0" />
+          <span class="error-message" id="smelterPriceError"></span>
+        </div>
+        <div class="form-group">
+          <label for="smelterSlot">Smelter Slot:</label> <!-- Added colon -->
+          <input type="number" id="smelterSlot" value="8" placeholder="Enter smelter slot" min="0" />
+          <span class="error-message" id="smelterSlotError"></span>
+        </div>
+      </div>
+
+      <!-- Step 14: Compressor -->
+      <div class="form-step">
+        <div class="form-group inline">
+          <label for="compressorEnable">Enable Compressor:</label> <!-- Added colon -->
+          <input type="checkbox" id="compressorEnable" />
+        </div>
+        <div class="form-group">
+          <label for="compressorPrice">Compressor Price:</label> <!-- Added colon -->
+          <input type="number" id="compressorPrice" value="1000" placeholder="Enter compressor price" min="0" />
+          <span class="error-message" id="compressorPriceError"></span>
+        </div>
+        <div class="form-group">
+          <label for="compressorSlot">Compressor Slot:</label> <!-- Added colon -->
+          <input type="number" id="compressorSlot" value="7" placeholder="Enter compressor slot" min="0" />
+          <span class="error-message" id="compressorSlotError"></span>
+        </div>
+      </div>
+
+      <!-- Step 15: Auto Sells -->
+      <div class="form-step">
+        <div class="form-group inline">
+          <label for="autosellsEnable">Enable Auto Sells:</label> <!-- Added colon -->
+          <input type="checkbox" id="autosellsEnable" checked />
+        </div>
+        <div class="form-group">
+          <label for="autosellsFrequency">Auto Sells Frequency (Ticks):</label> <!-- Added colon -->
+          <input type="number" id="autosellsFrequency" value="2400" placeholder="Enter auto sells frequency in ticks" min="0" />
+          <span class="error-message" id="autosellsFrequencyError"></span>
+        </div>
+        <div class="form-group">
+          <label for="autosellsMultiplier">Auto Sells Multiplier:</label> <!-- Added colon -->
+          <input type="number" id="autosellsMultiplier" value="2" placeholder="Enter auto sells multiplier" min="0" step="0.01" />
+          <span class="error-message" id="autosellsMultiplierError"></span>
+        </div>
+        <div class="form-group">
+          <label for="autosellsTax">Auto Sells Tax (%):</label> <!-- Added colon -->
+          <input type="number" id="autosellsTax" value="0" placeholder="Enter auto sells tax percentage" min="0" max="100" step="0.01" />
+          <span class="error-message" id="autosellsTaxError"></span>
+        </div>
+        <div class="form-group">
+          <label for="autosellsSlot">Auto Sells Slot:</label> <!-- Added colon -->
+          <input type="number" id="autosellsSlot" value="2" placeholder="Enter auto sells slot" min="0" />
+          <span class="error-message" id="autosellsSlotError"></span>
+        </div>
+      </div>
+
+      <!-- Step 16: Deposit -->
+      <div class="form-step">
+        <div class="form-group inline">
+          <label for="depositEnable">Enable Deposit:</label> <!-- Added colon -->
+          <input type="checkbox" id="depositEnable" checked />
+        </div>
+        <div class="form-group">
+          <label for="depositSlot">Deposit Slot:</label> <!-- Added colon -->
+          <input type="number" id="depositSlot" value="3" placeholder="Enter deposit slot" min="0" />
+          <span class="error-message" id="depositSlotError"></span>
+        </div>
+      </div>
+
+      <!-- Step 17: Search -->
+      <div class="form-step">
+        <div class="form-group inline">
+          <label for="searchEnable">Enable Search:</label> <!-- Added colon -->
+          <input type="checkbox" id="searchEnable" />
+        </div>
+        <div class="form-group">
+          <label for="searchSlot">Search Slot:</label> <!-- Added colon -->
+          <input type="number" id="searchSlot" value="4" placeholder="Enter search slot" min="0" />
+          <span class="error-message" id="searchSlotError"></span>
+        </div>
+      </div>
+
+      <!-- Step 18: Settings -->
+      <div class="form-step">
+        <div class="form-group inline">
+          <label for="settingsEnable">Enable Settings:</label> <!-- Added colon -->
+          <input type="checkbox" id="settingsEnable" />
+        </div>
+        <div class="form-group">
+          <label for="settingsSlot">Settings Slot:</label> <!-- Added colon -->
+          <input type="number" id="settingsSlot" value="1" placeholder="Enter settings slot" min="0" />
+          <span class="error-message" id="settingsSlotError"></span>
+        </div>
+      </div>
+
+      <!-- Step 19: Crafting -->
+      <div class="form-step">
+        <div class="form-group inline">
+          <label for="craftingEnable">Enable Crafting:</label> <!-- Added colon -->
+          <input type="checkbox" id="craftingEnable" />
+        </div>
+        <div class="form-group">
+          <label for="craftingItems">Crafting Items:</label> <!-- Added colon -->
+          <textarea id="craftingItems">A:
+  material: "OAK_PLANKS"
+  data: 0
+B:
+  chest: "example"</textarea>
+          <span class="error-message" id="craftingItemsError"></span>
+        </div>
+        <div class="form-group">
+          <label for="craftingRecipe">Crafting Recipe (3x3):</label> <!-- Added colon -->
+          <textarea id="craftingRecipe">AAA
+ABA
+AAA</textarea>
+          <span class="error-message" id="craftingRecipeError"></span>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="button-group">
+        <button type="button" class="button" id="prevBtn" onclick="prevStep()">Previous</button>
+        <button type="button" class="button" id="nextBtn" onclick="nextStep()">Next</button>
+        <button type="button" class="button" id="generateBtn" onclick="generateYAML()" style="display: none;">Generate YAML</button>
+        <button type="button" class="button" id="downloadBtn" onclick="downloadYAML()" style="display: none;">Download YAML</button>
+      </div>
+    </form>
+
+    <!-- YAML Preview -->
+    <div class="yaml-preview" id="yamlPreview">
+      <!-- YAML preview will be shown here -->
+    </div>
+  </div>
+
+  <!-- Link to External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
