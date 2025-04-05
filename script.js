@@ -144,11 +144,15 @@ function generateYAML() {
 
   // Deposit
   const depositEnable = document.getElementById('depositEnable').checked;
-  const depositSlot = document.getElementById('depositSlot').value;
 
   // Search
   const searchEnable = document.getElementById('searchEnable').checked;
   const searchSlot = document.getElementById('searchSlot').value;
+  
+  // Chunk Collector
+  const chunkCollectorEnable = document.getElementById('chunkCollectorEnable').checked;
+  const chunkCollectorSlot = document.getElementById('chunkCollectorSlot').value;
+
 
   // Settings
   const settingsEnable = document.getElementById('settingsEnable').checked;
@@ -213,10 +217,12 @@ autosells:
   slot: ${autosellsSlot}
 deposit:
   enable: ${depositEnable}
-  slot: ${depositSlot}
 search:
   enable: ${searchEnable}
   slot: ${searchSlot}
+chunk-collector:
+  enable: ${chunkCollectorEnable}
+  slot: ${chunkCollectorSlot}
 settings:
   enable: ${settingsEnable}
   slot: ${settingsSlot}
@@ -600,20 +606,6 @@ function validateStep(n) {
       }
       break;
 
-    case 15: // Step 16: Deposit
-      const depositSlot = document.getElementById('depositSlot').value;
-      const depositSlotError = document.getElementById('depositSlotError');
-      if (depositSlot === "") {
-        depositSlotError.textContent = "Deposit slot cannot be empty.";
-        isValid = false;
-      } else if (!Number.isInteger(Number(depositSlot)) || Number(depositSlot) < 0) {
-        depositSlotError.textContent = "Deposit slot must be a non-negative integer.";
-        isValid = false;
-      } else {
-        depositSlotError.textContent = "";
-      }
-      break;
-
     case 16: // Step 17: Search
       const searchEnable = document.getElementById('searchEnable').checked;
       const searchSlot = document.getElementById('searchSlot').value;
@@ -634,8 +626,21 @@ function validateStep(n) {
         searchSlotError.textContent = "";
       }
       break;
+    case 17: // Step: Chunk Collector
+      const chunkCollectorSlot = document.getElementById('chunkCollectorSlot').value;
+      const chunkCollectorSlotError = document.getElementById('chunkCollectorSlotError');
+      if (chunkCollectorSlot === "") {
+        chunkCollectorSlotError.textContent = "Chunk collector slot cannot be empty.";
+        isValid = false;
+      } else if (!Number.isInteger(Number(chunkCollectorSlot)) || Number(chunkCollectorSlot) < 0) {
+        chunkCollectorSlotError.textContent = "Chunk collector slot must be a non-negative integer.";
+        isValid = false;
+      } else {
+        chunkCollectorSlotError.textContent = "";
+      }
+      break;
 
-    case 17: // Step 18: Settings
+    case 18: // Step 17: Settings
       const settingsSlot = document.getElementById('settingsSlot').value;
       const settingsSlotError = document.getElementById('settingsSlotError');
       if (settingsSlot === "") {
@@ -649,7 +654,7 @@ function validateStep(n) {
       }
       break;
 
-    case 18: // Step 19: Crafting
+    case 19: // Step 18: Crafting
       const craftingEnable = document.getElementById('craftingEnable').checked;
       const craftingItems = document.getElementById('craftingItems').value.trim();
       const craftingItemsError = document.getElementById('craftingItemsError');

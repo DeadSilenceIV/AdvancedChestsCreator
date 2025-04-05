@@ -33,6 +33,7 @@
       <li data-emoji="📈" title="Auto Sells"></li> <!-- Step 15: Auto Sells -->
       <li data-emoji="🛢️" title="Deposit"></li> <!-- Step 16: Deposit -->
       <li data-emoji="🔍" title="Search"></li> <!-- Step 17: Search -->
+	  <li data-emoji="🗃️" title="Chunk Collector"></li> <!-- Step 18: Chunk Collector -->
       <li data-emoji="⚙️" title="Settings"></li> <!-- Step 18: Settings -->
       <li data-emoji="🛠️" title="Crafting"></li> <!-- Step 19: Crafting -->
     </ul>
@@ -93,7 +94,7 @@
       <div class="form-step">
         <div class="form-group inline">
           <label for="hologramEnable">Enable Hologram:</label> <!-- Added colon -->
-          <input type="checkbox" id="hologramEnable" checked />
+          <input type="checkbox" id="hologramEnable"/>
         </div>
         <div class="form-group">
           <label for="hologramTitle">Hologram Title (line per line):</label> <!-- Added colon -->
@@ -107,7 +108,7 @@
       <div class="form-step">
         <div class="form-group inline">
           <label for="transportEnable">Enable Transportation:</label> <!-- Added colon -->
-          <input type="checkbox" id="transportEnable" checked />
+          <input type="checkbox" id="transportEnable"/>
         </div>
         <div class="form-group">
           <label for="transportItemName">Transport Item Name:</label> <!-- Added colon -->
@@ -185,7 +186,7 @@
       <div class="form-step">
         <div class="form-group inline">
           <label for="sortersEnable">Enable Sorters:</label> <!-- Added colon -->
-          <input type="checkbox" id="sortersEnable" checked />
+          <input type="checkbox" id="sortersEnable"/>
         </div>
         <div class="form-group">
           <label for="sortersPrice">Sorters Price:</label> <!-- Added colon -->
@@ -203,7 +204,7 @@
       <div class="form-step">
         <div class="form-group inline">
           <label for="sellsEnable">Enable Sells:</label> <!-- Added colon -->
-          <input type="checkbox" id="sellsEnable" checked />
+          <input type="checkbox" id="sellsEnable"/>
         </div>
         <div class="form-group">
           <label for="sellsMultiplier">Sells Multiplier:</label> <!-- Added colon -->
@@ -257,7 +258,7 @@
       <div class="form-step">
         <div class="form-group inline">
           <label for="autosellsEnable">Enable Auto Sells:</label> <!-- Added colon -->
-          <input type="checkbox" id="autosellsEnable" checked />
+          <input type="checkbox" id="autosellsEnable"/>
         </div>
         <div class="form-group">
           <label for="autosellsFrequency">Auto Sells Frequency (Ticks):</label> <!-- Added colon -->
@@ -285,12 +286,7 @@
       <div class="form-step">
         <div class="form-group inline">
           <label for="depositEnable">Enable Deposit:</label> <!-- Added colon -->
-          <input type="checkbox" id="depositEnable" checked />
-        </div>
-        <div class="form-group">
-          <label for="depositSlot">Deposit Slot:</label> <!-- Added colon -->
-          <input type="number" id="depositSlot" value="3" placeholder="Enter deposit slot" min="0" />
-          <span class="error-message" id="depositSlotError"></span>
+          <input type="checkbox" id="depositEnable"/>
         </div>
       </div>
 
@@ -306,8 +302,21 @@
           <span class="error-message" id="searchSlotError"></span>
         </div>
       </div>
+	  
+	  <!-- Step 18: Chunk Collector -->
+	  <div class="form-step">
+		  <div class="form-group inline">
+			<label for="chunkCollectorEnable">Enable Chunk Collector:</label>
+			<input type="checkbox" id="chunkCollectorEnable"/>
+		  </div>
+		  <div class="form-group">
+			<label for="chunkCollectorSlot">Chunk Collector Slot:</label>
+			<input type="number" id="chunkCollectorSlot" value="1" placeholder="Enter chunk collector slot" min="0" />
+			<span class="error-message" id="chunkCollectorSlotError"></span>
+		  </div>
+	  </div>
 
-      <!-- Step 18: Settings -->
+      <!-- Step 19: Settings -->
       <div class="form-step">
         <div class="form-group inline">
           <label for="settingsEnable">Enable Settings:</label> <!-- Added colon -->
@@ -320,7 +329,7 @@
         </div>
       </div>
 
-      <!-- Step 19: Crafting -->
+      <!-- Step 20: Crafting -->
       <div class="form-step">
         <div class="form-group inline">
           <label for="craftingEnable">Enable Crafting:</label> <!-- Added colon -->
